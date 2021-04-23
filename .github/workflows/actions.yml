@@ -1,19 +1,10 @@
 name: tmate
-
 on:
   workflow_dispatch:
-    inputs:
-    
 jobs:
-  tmate:
+  build:
     runs-on: ubuntu-latest
-    name: tmate
-    continue-on-error: true
-    timeout-minutes: 200
-
     steps:
-      - uses: actions/checkout@v2
-      - name: tmate Install
-        run: |
-          sudo apt-get install tmate
-          tmate
+    - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
